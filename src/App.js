@@ -11,8 +11,10 @@ function App() {
   return (
     <main>
       <Form />
-      <BookList />
-      <Favourites />
+      <div className='content'>
+        <BookList />
+        <Favourites />
+      </div>
     </main>
   );
 }

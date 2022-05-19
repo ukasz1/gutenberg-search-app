@@ -1,6 +1,7 @@
 body {
   margin: 0;
   font-family: 'Roboto', 'Arial', sans-serif;
+  background-color: bisque;
 }
 
 main{
@@ -9,8 +10,68 @@ main{
 
 h1{
   text-align: center;
+  font-size: 4em;
 }
 
 .form{
   text-align: center;
+}
+.booklist, .favourites{
+  height: 500px;
+  border: 1px solid black;
+  margin: 20px;
+  border-radius: 15px;
+}
+.content{
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.booklist{
+  display: flex;
+  border: 0;
+}
+
+.booklist .left, .booklist .right{
+  /* border: 1px solid red; */
+  height: inherit;
+  line-height: 500px;
+}
+
+.booklist .left button, .booklist .right button {
+  padding: 0;
+  margin: 20px;
+  font-size: 5em;
+}
+
+.booklist .center{
+  width: 1000px;
+  border: 1px solid grey;
+  border-radius: 15px;
+  background-color: white;
+}
+.favourites{
+  width: 100%;
+  height: 500px;
+  border: 1px solid grey;
+  margin: 20px;
+  border-radius: 15px;
+  background-color: white;
+}
+
+td{
+  width: 600px;
+  padding: 10px;
+}
+th{
+  width: 600px;
+  padding: 10px;
+  text-align: left;
+  font-size: 2em;
+}
+
+span{
+  padding: 30px;
+  font-size: 3em;
 }

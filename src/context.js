@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import axios from 'axios';
 
 const AppContext = React.createContext();
@@ -10,11 +10,13 @@ const AppProvider = ({ children }) => {
 
   const url = 'https://gnikdroy.pythonanywhere.com/api/book/?format=json';
 
-  const searchAll = async (e) => {
-    e.preventDefault();
+  useEffect(() => {
+    searchAll()
+  }, []);
+
+  const searchAll = async () => {
     try {
       const response = await axios(url);
-      console.log(response.data);
       setData(response.data);
     } catch (error) {
       console.log(error.response)
