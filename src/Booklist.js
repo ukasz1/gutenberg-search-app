@@ -24,7 +24,7 @@ const BookList = () => {
 
   return (
     <div className="booklist">
-      <div className="left"><button type="button" onClick={prevData}>{String.fromCharCode(171)}</button></div>
+      <div className="left"><button type="button" onClick={prevData}><span>{String.fromCharCode(171)}</span></button></div>
       <div className="center">
         <table>
           <thead>
@@ -49,7 +49,7 @@ const BookList = () => {
           </tbody>
         </table>
       </div>
-      <div className="right"><button type="button" className="right-submit" onClick={nextData}>{String.fromCharCode(187)}</button></div>
+      <div className="right"><button type="button" onClick={nextData}><span>{String.fromCharCode(187)}</span></button></div>
     </div>
   )
 }
