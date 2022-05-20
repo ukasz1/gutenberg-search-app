@@ -1,7 +1,13 @@
+:root {
+  --booklist-height: 550px;
+  --div-color: rgb(255, 247, 241);
+}
+
 body {
   margin: 0;
   font-family: 'Roboto', 'Arial', sans-serif;
-  background-color: bisque;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./images/library-background.jpg');
+  background-size: cover;
 }
 
 main{
@@ -11,20 +17,34 @@ main{
 h1{
   text-align: center;
   font-size: 4em;
+  color: gold;
+  text-shadow: 0 0 1em gold;
+  margin: 0.5em;
+}
+
+.text-input{
+  height: 30px;
+  font-size: 22px;
+}
+
+.submit-button{
+  height: 40px;
+  font-size:1.2em;
+  margin-left: 10px;
 }
 
 .form{
   text-align: center;
 }
 .booklist, .favourites{
-  height: 500px;
+  height: var(--booklist-height);
   border: 1px solid black;
   margin: 20px;
   border-radius: 15px;
 }
 .content{
   display: flex;
-  width: 90%;
+  width: 98%;
   margin: 0 auto;
 }
 
@@ -34,44 +54,63 @@ h1{
 }
 
 .booklist .left, .booklist .right{
-  /* border: 1px solid red; */
   height: inherit;
-  line-height: 500px;
-}
-
-.booklist .left button, .booklist .right button {
-  padding: 0;
-  margin: 20px;
-  font-size: 5em;
+  line-height: var(--booklist-height);
 }
 
 .booklist .center{
-  width: 1000px;
+  width: 800px;
   border: 1px solid grey;
   border-radius: 15px;
-  background-color: white;
+  background-color: var(--div-color);
+  box-shadow: inset 0 0 8px #777777;
+  overflow: auto;
 }
+
+.booklist button{
+  position: relative;
+  top: 13px;
+  height: 100px;
+  line-height: 100px;
+  margin: 20px;
+  font-size: 5em;
+  box-shadow: inset 0 0 8px #777777;
+  border: 1px solid #777777;
+  background: var(--div-color);
+  border-radius: 3px;
+  transition: transform .1s, -webkit-transform .1s;
+  cursor: pointer;
+}
+.booklist button:hover{
+  transform: scale(1.2);
+}
+button span{
+  position: relative;
+  bottom: 5px;
+}
+
 .favourites{
-  width: 100%;
-  height: 500px;
+  height: var(--booklist-height);
+  width: 600px;
   border: 1px solid grey;
   margin: 20px;
   border-radius: 15px;
-  background-color: white;
+  background-color: var(--div-color);
+  box-shadow: inset 0 0 8px #777777;
 }
 
 td{
-  width: 600px;
+  width: 800px;
   padding: 10px;
 }
 th{
-  width: 600px;
+  width: 800px;
   padding: 10px;
   text-align: left;
   font-size: 2em;
 }
 
-span{
+td span{
   padding: 30px;
   font-size: 3em;
 }
