@@ -4,17 +4,16 @@ import axios from 'axios';
 const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
-  const [title, setTitle] = useState('');
   const [data, setData] = useState({});
   const [favourites, setFavourites] = useState({});
 
   const url = 'https://gnikdroy.pythonanywhere.com/api/book/?format=json';
 
   useEffect(() => {
-    searchAll()
+    searchAll(url)
   }, []);
 
-  const searchAll = async () => {
+  const searchAll = async (url) => {
     try {
       const response = await axios(url);
       setData(response.data);
@@ -27,12 +26,12 @@ const AppProvider = ({ children }) => {
     <AppContext.Provider
       value={{
         searchAll,
-        title,
-        setTitle,
+        // title,
+        // setTitle,
         data,
         setData,
         favourites,
-        setFavourites
+        setFavourites,
       }}
     >
       {children}
