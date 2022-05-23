@@ -16,8 +16,7 @@ const Form = () => {
       <h1>Gutenberg search</h1>
       <div className='form'>
         <form>
-          <label htmlFor="title">Title: </label>
-          <input type="text" id="title" className='text-input' onChange={(e) => setTitle(e.target.value)} />
+          <input type="text" className='text-input' onChange={(e) => setTitle(e.target.value)} />
           <button type="submit" className='submit-button' onClick={(e) => findBooks(e)}>Search</button>
         </form>
       </div>
