@@ -1,10 +1,9 @@
 import { useState, useContext, useEffect } from "react";
 import { AppContext } from "./context";
 
-
 const BookList = () => {
 
-  const { data, searchAll } = useContext(AppContext);
+  const { data, searchAll, loading, setLoading } = useContext(AppContext);
   const [newData, setNewData] = useState([]);
 
   useEffect(() => {
@@ -22,6 +21,9 @@ const BookList = () => {
     }
   }
 
+  console.log(data);
+  console.log(newData);
+
   return (
     <div className="booklist">
       <div className="left"><button type="button" onClick={prevData}><span>{String.fromCharCode(171)}</span></button></div>
@@ -33,25 +35,29 @@ const BookList = () => {
             </tr>
           </thead>
           <tbody>
-            {(newData !== undefined) ?
+            {(!loading && newData !== undefined) ?
               newData.map((item, index) => {
                 return (
                   <tr key={index}>
                     <td>
                       <div >
                         <b>{item.title}</b>,
-                        <i> {item.agents[0].person}</i>
+                        <i> {item.agents.length > 0 ? item.agents[item.agents.length - 1].person : ''}</i>
                       </div>
                     </td>
                   </tr>
                 )
-              }) : (<tr><td><span>Loading...</span> </td></tr>)}
+              }) : <Loading />}
           </tbody>
         </table>
       </div>
       <div className="right"><button type="button" onClick={nextData}><span>{String.fromCharCode(187)}</span></button></div>
     </div>
   )
+}
+
+const Loading = () => {
+  return <tr><td><span>Loading...</span></td></tr>
 }
 
 export default BookList;
