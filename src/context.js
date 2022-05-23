@@ -6,6 +6,7 @@ const AppContext = React.createContext();
 const AppProvider = ({ children }) => {
   const [data, setData] = useState({});
   const [favourites, setFavourites] = useState({});
+  const [loading, setLoading] = useState(true);
 
   const url = 'https://gnikdroy.pythonanywhere.com/api/book/?format=json';
 
@@ -15,8 +16,10 @@ const AppProvider = ({ children }) => {
 
   const searchAll = async (url) => {
     try {
+      setLoading(true);
       const response = await axios(url);
       setData(response.data);
+      setLoading(false);
     } catch (error) {
       console.log(error.response)
     }
@@ -26,8 +29,8 @@ const AppProvider = ({ children }) => {
     <AppContext.Provider
       value={{
         searchAll,
-        // title,
-        // setTitle,
+        loading,
+        setLoading,
         data,
         setData,
         favourites,

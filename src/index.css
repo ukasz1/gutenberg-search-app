@@ -25,6 +25,12 @@ h1{
 .text-input{
   height: 30px;
   font-size: 22px;
+  color: #222;
+  background: var(--div-color);
+  border-radius: 4px;
+  border-color: #fff;
+  border-style: none;
+  box-shadow: inset 0 0 3px #777777;
 }
 
 .submit-button{
@@ -53,7 +59,7 @@ h1{
   border: 0;
 }
 
-.booklist .left, .booklist .right{
+.left, .right{
   height: inherit;
   line-height: var(--booklist-height);
 }
@@ -72,7 +78,7 @@ h1{
   top: 13px;
   height: 100px;
   line-height: 100px;
-  margin: 20px;
+  margin: 10px;
   font-size: 5em;
   box-shadow: inset 0 0 8px #777777;
   border: 1px solid #777777;
@@ -99,9 +105,14 @@ button span{
   box-shadow: inset 0 0 8px #777777;
 }
 
-td{
+.booklist td{
   width: 800px;
   padding: 10px;
+  transition: transform .1s, -webkit-transform .1s;
+}
+.booklist td:hover{
+  background: rgb(255, 217, 148);
+  cursor: pointer;
 }
 th{
   width: 800px;
