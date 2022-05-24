@@ -7,11 +7,13 @@ body {
   font-family: 'Roboto', 'Arial', sans-serif;
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./images/library-background.jpg');
   background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 main{
   margin: 0 auto;
 }
-h1{
+h1.main-title{
   text-align: center;
   font-size: 4em;
   color: gold;
@@ -58,14 +60,13 @@ h1{
 }
 .booklist .center{
   width: 800px;
+  height: var(--booklist-height);
+  padding: 5px;
   border: 1px solid grey;
   border-radius: 15px;
   background-color: var(--div-color);
   box-shadow: inset 0 0 8px #777777;
   overflow: auto;
-}
-.center{
-  padding: 5px;
 }
 .booklist button{
   position: relative;
@@ -140,4 +141,24 @@ th{
 .loading-span{
   padding: 25px;
   font-size: 2.5em;
+}
+
+.book-text{
+  position: relative;
+  left: 40px;
+  width: 88%;
+  height: 500px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  padding: 10px;
+  background: var(--div-color);
+
+  box-shadow: inset 0 0 8px #777777;
+  border: 1px solid #777777;
+  border-radius: 15px;
+}
+
+iframe{
+  width: 100%;
+  height: 100%;
 }
