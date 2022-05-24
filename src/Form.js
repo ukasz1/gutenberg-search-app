@@ -13,7 +13,7 @@ const Form = () => {
 
   return (
     <>
-      <h1>Gutenberg search</h1>
+      <h1 className='main-title'>Gutenberg search</h1>
       <div className='form'>
         <form>
           <input type="text" className='text-input' onChange={(e) => setTitle(e.target.value)} />
