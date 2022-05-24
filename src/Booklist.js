@@ -1,9 +1,9 @@
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { AppContext } from "./context";
 
 const BookList = () => {
 
-  const { data, searchAll, loading, favouritesTrigger, favouritesRender, handleRecord } = useContext(AppContext);
+  const { data, searchAll, loading, favouritesTrigger, favouritesRender, handleRecord, setCurrentBook } = useContext(AppContext);
 
   const nextData = () => {
     if (data.next) {
@@ -23,6 +23,18 @@ const BookList = () => {
     favouritesRender(!favouritesTrigger);
   }
 
+  const showBook = (item) => {
+    const { resources } = item;
+    let link = '';
+    resources.forEach((book) => {
+      const { uri } = book;
+      if (uri.includes('.htm')) {
+        link = uri;
+      }
+    });
+    setCurrentBook(link);
+  }
+
   return (
     <div className="booklist">
       <div className="left"><button type="button" onClick={prevData}><span>{String.fromCharCode(171)}</span></button></div>
@@ -39,7 +51,7 @@ const BookList = () => {
                 return (
                   <tr key={index} className="tr-content">
                     <td>
-                      <div className="record-div">
+                      <div className="record-div" onClick={() => showBook(item)}>
                         <div className="book-record">
                           <b>{item.title}</b>,{' '}
                           <i>{item.agents.length > 0 ? item.agents[item.agents.length - 1].person : ''}</i>
