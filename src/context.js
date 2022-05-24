@@ -7,6 +7,7 @@ const AppProvider = ({ children }) => {
   const [data, setData] = useState({});
   const [favouritesTrigger, favouritesRender] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [currentBook, setCurrentBook] = useState('');
 
   const url = 'https://gnikdroy.pythonanywhere.com/api/book/?format=json';
 
@@ -44,7 +45,9 @@ const AppProvider = ({ children }) => {
         setData,
         favouritesTrigger,
         favouritesRender,
-        handleRecord
+        handleRecord,
+        currentBook,
+        setCurrentBook
       }}
     >
       {children}
