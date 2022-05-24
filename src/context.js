@@ -5,7 +5,7 @@ const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
   const [data, setData] = useState({});
-  const [favourites, setFavourites] = useState({});
+  const [favouritesTrigger, favouritesRender] = useState(false);
   const [loading, setLoading] = useState(true);
 
   const url = 'https://gnikdroy.pythonanywhere.com/api/book/?format=json';
@@ -25,6 +25,15 @@ const AppProvider = ({ children }) => {
     }
   }
 
+  const handleRecord = (e) => {
+    const rootDiv = e.target.closest('.record-div')
+    const bookTitle = rootDiv.firstChild.firstChild.innerText;
+    const bookAuthor = rootDiv.firstChild.firstChild.nextElementSibling.innerText;
+
+    const favObject = { title: bookTitle, author: bookAuthor };
+    return favObject;
+  }
+
   return (
     <AppContext.Provider
       value={{
@@ -33,8 +42,9 @@ const AppProvider = ({ children }) => {
         setLoading,
         data,
         setData,
-        favourites,
-        setFavourites,
+        favouritesTrigger,
+        favouritesRender,
+        handleRecord
       }}
     >
       {children}
