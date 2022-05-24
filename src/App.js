@@ -1,10 +1,9 @@
 import './index.css';
 import React from 'react'
-import axios from 'axios';
-import { useState } from 'react';
 import Form from './Form'
 import BookList from './Booklist'
 import Favourites from './Favourites'
+import BookText from './BookText'
 
 function App() {
 
@@ -15,6 +14,7 @@ function App() {
         <BookList />
         <Favourites />
       </div>
+      <BookText />
     </main>
   );
 }
