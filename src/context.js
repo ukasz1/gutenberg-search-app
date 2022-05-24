@@ -26,15 +26,6 @@ const AppProvider = ({ children }) => {
     }
   }
 
-  const handleRecord = (e) => {
-    const rootDiv = e.target.closest('.record-div')
-    const bookTitle = rootDiv.firstChild.firstChild.innerText;
-    const bookAuthor = rootDiv.firstChild.firstChild.nextElementSibling.innerText;
-
-    const favObject = { title: bookTitle, author: bookAuthor };
-    return favObject;
-  }
-
   const showBook = (item) => {
     console.log(item)
     const { resources } = item;
@@ -58,7 +49,6 @@ const AppProvider = ({ children }) => {
         setData,
         favouritesTrigger,
         favouritesRender,
-        handleRecord,
         currentBook,
         setCurrentBook,
         showBook

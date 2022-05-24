@@ -3,7 +3,7 @@ import { AppContext } from "./context";
 
 const BookList = () => {
 
-  const { data, searchAll, loading, favouritesTrigger, favouritesRender, handleRecord, showBook } = useContext(AppContext);
+  const { data, searchAll, loading, favouritesTrigger, favouritesRender, showBook } = useContext(AppContext);
 
   const nextData = () => {
     if (data.next) {
@@ -16,10 +16,8 @@ const BookList = () => {
     }
   }
 
-  const toFavourites = (e) => {
-    const favObject = handleRecord(e);
-
-    localStorage.setItem(favObject.title + favObject.author, JSON.stringify(favObject));
+  const toFavourites = (item) => {
+    localStorage.setItem(item.id.toString(), JSON.stringify(item));
     favouritesRender(!favouritesTrigger);
   }
 
@@ -45,7 +43,7 @@ const BookList = () => {
                           <i>{item.agents.length > 0 ? item.agents[item.agents.length - 1].person : ''}</i>
                         </div>
                         <div>
-                          <span className="star" onClick={(e) => toFavourites(e)}>{String.fromCharCode(9733)}</span>
+                          <span className="star" onClick={() => toFavourites(item)}>{String.fromCharCode(9733)}</span>
                         </div>
                       </div>
                     </td>

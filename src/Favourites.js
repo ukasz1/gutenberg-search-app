@@ -2,12 +2,11 @@ import { useContext } from 'react'
 import { AppContext } from "./context";
 
 const Favourites = () => {
-  const { favouritesTrigger, favouritesRender, handleRecord, showBook } = useContext(AppContext);
+  const { favouritesTrigger, favouritesRender, showBook } = useContext(AppContext);
   const storageKeys = Object.keys(localStorage);
 
-  const deleteBook = (e) => {
-    const favObject = handleRecord(e);
-    localStorage.removeItem(favObject.title + favObject.author);
+  const deleteBook = (item) => {
+    localStorage.removeItem(item);
     favouritesRender(!favouritesTrigger);
   }
 
@@ -22,15 +21,16 @@ const Favourites = () => {
         <tbody>
           {storageKeys.map((item) => {
             const bookObject = JSON.parse(localStorage.getItem(item));
+
             return (
-              <tr key={item} className="tr-content">
-                <td className="record-div" /*onClick={() => showBook(item)}*/>
+              <tr key={bookObject.id} className="tr-content">
+                <td className="record-div" onClick={() => showBook(bookObject)}>
                   <div className='book-record'>
                     <b>{bookObject.title}</b>,{' '}
-                    <i>{bookObject.author}</i>
+                    <i>{bookObject.agents.length > 0 ? bookObject.agents[bookObject.agents.length - 1].person : ''}</i>
                   </div>
                   <div>
-                    <span className="star" onClick={(e) => { deleteBook(e) }}>{String.fromCharCode(10006)}</span>
+                    <span className="star" onClick={() => { deleteBook(item) }}>{String.fromCharCode(10006)}</span>
                   </div>
                 </td>
               </tr>
