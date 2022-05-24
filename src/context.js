@@ -35,6 +35,19 @@ const AppProvider = ({ children }) => {
     return favObject;
   }
 
+  const showBook = (item) => {
+    console.log(item)
+    const { resources } = item;
+    let link = '';
+    resources.forEach((book) => {
+      const { uri } = book;
+      if (uri.includes('.htm')) {
+        link = uri;
+      }
+    });
+    setCurrentBook(link);
+  }
+
   return (
     <AppContext.Provider
       value={{
@@ -47,7 +60,8 @@ const AppProvider = ({ children }) => {
         favouritesRender,
         handleRecord,
         currentBook,
-        setCurrentBook
+        setCurrentBook,
+        showBook
       }}
     >
       {children}

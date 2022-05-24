@@ -2,7 +2,7 @@ import { useContext } from 'react'
 import { AppContext } from "./context";
 
 const Favourites = () => {
-  const { favouritesTrigger, favouritesRender, handleRecord } = useContext(AppContext);
+  const { favouritesTrigger, favouritesRender, handleRecord, showBook } = useContext(AppContext);
   const storageKeys = Object.keys(localStorage);
 
   const deleteBook = (e) => {
@@ -24,10 +24,13 @@ const Favourites = () => {
             const bookObject = JSON.parse(localStorage.getItem(item));
             return (
               <tr key={item} className="tr-content">
-                <td className="record-div">
-                  <div className='book-record' onClick={(e) => { deleteBook(e) }}>
+                <td className="record-div" /*onClick={() => showBook(item)}*/>
+                  <div className='book-record'>
                     <b>{bookObject.title}</b>,{' '}
                     <i>{bookObject.author}</i>
+                  </div>
+                  <div>
+                    <span className="star" onClick={(e) => { deleteBook(e) }}>{String.fromCharCode(10006)}</span>
                   </div>
                 </td>
               </tr>

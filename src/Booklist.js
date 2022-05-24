@@ -3,7 +3,7 @@ import { AppContext } from "./context";
 
 const BookList = () => {
 
-  const { data, searchAll, loading, favouritesTrigger, favouritesRender, handleRecord, setCurrentBook } = useContext(AppContext);
+  const { data, searchAll, loading, favouritesTrigger, favouritesRender, handleRecord, showBook } = useContext(AppContext);
 
   const nextData = () => {
     if (data.next) {
@@ -21,18 +21,6 @@ const BookList = () => {
 
     localStorage.setItem(favObject.title + favObject.author, JSON.stringify(favObject));
     favouritesRender(!favouritesTrigger);
-  }
-
-  const showBook = (item) => {
-    const { resources } = item;
-    let link = '';
-    resources.forEach((book) => {
-      const { uri } = book;
-      if (uri.includes('.htm')) {
-        link = uri;
-      }
-    });
-    setCurrentBook(link);
   }
 
   return (
