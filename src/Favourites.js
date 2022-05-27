@@ -29,8 +29,8 @@ const Favourites = () => {
                     <b>{bookObject.title}</b>,{' '}
                     <i>{bookObject.agents.length > 0 ? bookObject.agents[bookObject.agents.length - 1].person : ''}</i>
                   </div>
-                  <div>
-                    <span className="star" onClick={() => { deleteBook(item) }}>{String.fromCharCode(10006)}</span>
+                  <div className='div-cross'>
+                    <span className="cross" onClick={() => { deleteBook(item) }}>{String.fromCharCode(10006)}</span>
                   </div>
                 </td>
               </tr>
