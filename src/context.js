@@ -27,7 +27,6 @@ const AppProvider = ({ children }) => {
   }
 
   const showBook = (item) => {
-    console.log(item)
     const { resources } = item;
     let link = '';
     resources.forEach((book) => {
