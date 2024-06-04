@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import { AppContext } from "./context";
+import { AppContext, AppContextType } from "./context";
 import React from "react";
 
 const BookText = () => {
-  const { currentBook } = useContext(AppContext);
+  const { currentBook } = useContext(AppContext) as AppContextType;
 
   return (
     <div className="book-text">

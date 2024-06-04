@@ -1,11 +1,11 @@
 import React, { useContext, useState } from 'react';
-import { AppContext } from './context';
+import { AppContext, AppContextType } from './context';
 
 const Form = () => {
-  const { searchAll } = useContext(AppContext);
+  const { searchAll } = useContext(AppContext) as AppContextType;
   const [title, setTitle] = useState('');
 
-  const findBooks = (e) => {
+  const findBooks = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const url = `https://gnikdroy.pythonanywhere.com/api/book/?format=json&search=${title}`;
     searchAll(url);
@@ -15,9 +15,9 @@ const Form = () => {
     <>
       <h1 className='main-title'>Gutenberg search</h1>
       <div className='form'>
-        <form>
+        <form onSubmit={findBooks}>
           <input type="text" className='text-input' onChange={(e) => setTitle(e.target.value)} />
-          <button type="submit" className='submit-button' onClick={(e) => findBooks(e)}>Search</button>
+          <button type="submit" className='submit-button'>Search</button>
         </form>
       </div>
     </>

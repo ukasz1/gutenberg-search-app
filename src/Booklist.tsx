@@ -1,9 +1,16 @@
-import { useContext } from "react";
-import { AppContext } from "./context";
+import React, { useContext } from "react";
+import { AppContext, AppContextType } from "./context";
 
 const BookList = () => {
 
-  const { data, searchAll, loading, favouritesTrigger, favouritesRender, showBook } = useContext(AppContext);
+  const {
+    data,
+    searchAll,
+    loading,
+    favouritesTrigger,
+    favouritesRender,
+    showBook
+  } = useContext(AppContext) as AppContextType;
 
   const nextData = () => {
     if (data.next) {
@@ -16,7 +23,7 @@ const BookList = () => {
     }
   }
 
-  const toFavourites = (item) => {
+  const toFavourites = (item: any) => {
     localStorage.setItem(item.id.toString(), JSON.stringify(item));
     favouritesRender(!favouritesTrigger);
   }

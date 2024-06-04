@@ -1,11 +1,11 @@
-import { useContext } from 'react'
-import { AppContext } from "./context";
+import React, { useContext } from 'react'
+import { AppContext, AppContextType } from "./context";
 
 const Favourites = () => {
-  const { favouritesTrigger, favouritesRender, showBook } = useContext(AppContext);
+  const { favouritesTrigger, favouritesRender, showBook } = useContext(AppContext) as AppContextType;
   const storageKeys = Object.keys(localStorage);
 
-  const deleteBook = (item) => {
+  const deleteBook = (item: string) => {
     localStorage.removeItem(item);
     favouritesRender(!favouritesTrigger);
   }
@@ -20,7 +20,7 @@ const Favourites = () => {
         </thead>
         <tbody>
           {storageKeys.map((item) => {
-            const bookObject = JSON.parse(localStorage.getItem(item));
+            const bookObject = JSON.parse(localStorage.getItem(item) || '{}');
 
             return (
               <tr key={bookObject.id} className="tr-content">
