@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { AppContext } from './context';
 
 const Form = () => {
-  const { /*title, setTitle,*/ searchAll } = useContext(AppContext);
+  const { searchAll } = useContext(AppContext);
   const [title, setTitle] = useState('');
 
   const findBooks = (e) => {

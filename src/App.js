@@ -1,9 +1,9 @@
 import './index.css';
 import React from 'react'
-import Form from './Form'
-import BookList from './Booklist'
-import Favourites from './Favourites'
-import BookText from './BookText'
+import Form from './Form.tsx'
+import BookList from './Booklist.tsx'
+import Favourites from './Favourites.tsx'
+import BookText from './BookText.tsx'
 
 function App() {
 
